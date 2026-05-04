@@ -1,68 +1,48 @@
 #include <iostream>
-#include <string> //menyertakan library string
 using namespace std;
 
-class Mahasiswa {
-
-private:
-    static int nim;
-
+class Mahasiswa //membuat class mahasiswa
+{
 public:
+    static int nim; //deklarasi variabel static yaitu variabel nim
+    //deklarasi variabel member
     int id;
     string nama;
 
+    //deklarasi prosedur setID() dan printAll()
     void setID();
     void printAll();
 
-    //pembuatan static function
-    static void setNim(int pnim) {
-        nim = pnim;
-    }
-
-
-    static int getNim() {
-        return nim;
-    }
-
-    Mahasiswa(string pnama) : nama(pnama) {
+    //pembuatan constructor Mahasiswa dengan parameter pnama
+    Mahasiswa(string pnama) : nama(pnama)
+    {
         setID();
     }
 };
+//memberi value ke variabel nim dari class mahasiswa
+int Mahasiswa::nim = 10;
 
-int Mahasiswa::nim = 0;
-
-//pendefinisial prosedur - prosedur diluar class
+//mengimplementasikan prosedur - prosedur di luar class
 void Mahasiswa::setID() {
     id = ++nim;
 }
 
 void Mahasiswa::printAll() {
-    cout << "ID = " << id << endl;
-    cout << "Nama = " << nama << endl;
-    cout << endl;
+    cout << "ID : " << id << endl;
+    cout << "Nama : " << nama << endl;
 }
+void Mahasiswa::printAll() {
+    cout << "ID : " << id << endl;
+    cout << "Nama : " << nama << endl;
+    cout << endl;
+};
 
 int main() {
-    //pembuatan object dan pemberian nilai
-    Mahasiswa mhs1("Sri Dadi");
-    Mahasiswa mhs2("Budi Jatmiko");
-    
-    //memberi nilai pada setNim() untuk merubah nilai NIM
-    Mahasiswa::setNim(9);
-    
-    Mahasiswa mhs3("Andi Janu");
-    Mahasiswa mhs4("Joko Wahono");
-}
-int main() {
-    //pembuatan object dan pemberian nilai
-    Mahasiswa mhs1("Sri Dadi");
-    Mahasiswa mhs2("Budi Jatmiko");
-    
-    //memberi nilai pada setNim() untuk merubah nilai NIM
-    Mahasiswa::setNim(9);
-    
-    Mahasiswa mhs3("Andi Janu");
-    Mahasiswa mhs4("Joko Wahono");
+    //membuat object dan memberi nilai
+    Mahasiswa mhs1("Lia Kurnia");
+    Mahasiswa mhs2("Asoni");
+    Mahasiswa mhs3("Andi Kurniawan");
+    Mahasiswa mhs4("Joko Purbo");
 
     //memanggil prosedur printAll()
     mhs1.printAll();
@@ -70,7 +50,5 @@ int main() {
     mhs3.printAll();
     mhs4.printAll();
 
-    //menampilkan NIM terakhir yang diproses
-    cout << "Akses dari luar object = " << Mahasiswa::getNim() << endl;
-    system("pause");
+    return 0;
 }
